@@ -137,7 +137,7 @@ The `loop` module provides a way to execute a function at a set rate and concurr
     var http = require('http'),
         loop = require('nodeload/loop'),
         requests = 0,
-        client = http.createClient(80, 'www.google.com'),
+        client = http.request(80, 'www.google.com'),
         l = new loop.MultiLoop({
             fun: function(finished) { 
                 client.request('GET', '/').end();

@@ -14,7 +14,7 @@ module.exports = {
             res.end();
         });
 
-        var client = http.createClient(9020, '127.0.0.1'),
+        var client = http.request(9020, '127.0.0.1'),
             req = client.request('GET', '/route/item');
         req.end();
         
@@ -24,7 +24,7 @@ module.exports = {
     },
     'test file server finds package.json': function(beforeExit) {
         var done = false;
-        var client = http.createClient(9020, '127.0.0.1'),
+        var client = http.request(9020, '127.0.0.1'),
             req = client.request('GET', '/package.json');
         req.end();
         req.on('response', function(res) {

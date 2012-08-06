@@ -135,7 +135,7 @@ module.exports = {
     'HTTP specific monitors': function(beforeExit) {
         var q = 0,
             m = new Monitor('result-codes', 'uniques', 'request-bytes', 'response-bytes', {name: 'header-code', header: 'content-type'}),
-            client = http.createClient(9000, 'localhost'),
+            client = http.request(9000, 'localhost'),
             f = function() {
                 var ctx = m.start(),
                     path = '/search?q=' + q++,
